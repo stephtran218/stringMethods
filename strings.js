@@ -25,3 +25,17 @@ console.log(fullName)
 
 //Slice function
 
+let holdiay = "christmas";
+let drink = "eggnog";
+
+let holidayString = holdiay + drink;
+
+function slice(){
+
+    let i = 0;
+    for(let i = 0; i < length(holidayString); i++){
+        startingIndex = 
+    }
+}
+
+console.log(holidayString)
