@@ -25,17 +25,79 @@ console.log(fullName)
 
 //Slice function
 
-let holdiay = "christmas";
-let drink = "eggnog";
+let holiday = "christmas";
 
-let holidayString = holdiay + drink;
+function slice(start, end, originalWord){
+    let part = "";
 
-function slice(){
-
-    let i = 0;
-    for(let i = 0; i < length(holidayString); i++){
-        startingIndex = 
+    for(let i = start; i < end; i++){
+        part += originalWord.charAt(i);
     }
+
+    return part;
 }
 
-console.log(holidayString)
+let newWord = slice(1,4, holiday)
+
+
+console.log(newWord)
+
+//Replace function
+
+function replace(original, specificValue, replaced){
+    let concoction = "";
+    let searching = 0;
+
+    for (let i = 0; i < original.length; i++){
+        if(original [i] === specificValue[searching]){
+            searching++;
+
+            if(searching === specificValue.length){
+                concoction += replaced;
+
+                searching = 0;
+            }
+        } else{
+            concoction += original[i];
+
+            searching = 0;
+        }
+    }
+    return concoction;
+}
+
+let original = "matcha";
+let newConcoction = replace(original, "a", "e")
+
+console.log(newConcoction)
+
+//replaceAll function
+function replaceAll(beginningWord, searchingWord, replacedWord){
+    let differentWord = "";
+    let currentI = 0;
+    
+    while (currentI < beginningWord.length){
+        let foundWord = true;
+        for(let i = 0; i < searchingWord.length; i++){
+            if(beginningWord[currentI + i] !== searchingWord [i]){
+                foundWord = false;
+            }
+        }
+        if(foundWord){
+            differentWord += replacedWord;
+            currentI += searchingWord.length;
+        } else{
+            differentWord += beginningWord[currentI];
+            currentI++;
+        }
+    }
+    return differentWord
+    
+}
+
+let ogString = "sunday, monday, tuesday";
+let updatedString = replaceAll(ogString, "sunday", "saturday")
+
+console.log(ogString);
+console.log(updatedString);
+
